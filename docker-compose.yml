@@ -1,0 +1,27 @@
+services:
+  rag-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./documents:/app/documents
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "3000:8080"
+    volumes:
+      - open-webui-data:/app/backend/data
+    environment:
+      - OPENAI_API_BASE_URL=http://rag-api:8000/v1
+      - OPENAI_API_KEY=dummy
+    depends_on:
+      - rag-api
+    restart: unless-stopped
+
+volumes:
+  open-webui-data:

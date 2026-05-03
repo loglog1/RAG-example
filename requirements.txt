@@ -1,0 +1,13 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+langchain>=0.2.0
+langgraph>=0.1.0
+langchain-openai>=0.1.0
+langchain-chroma>=0.1.0
+langchain-text-splitters>=0.2.0
+python-docx>=1.1.0
+python-pptx>=0.6.23
+pymupdf>=1.24.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+chromadb>=0.5.0
